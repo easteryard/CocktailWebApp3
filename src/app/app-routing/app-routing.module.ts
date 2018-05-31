@@ -16,7 +16,7 @@ import { CanEditGuard } from './../guard/can-edit.guard';
 
 export const appRoutes: Routes = [
   { path: 'browse-cocktails', component: AllCocktailsComponent },
-  { path: 'user-cocktails', component: UserCocktailsComponent, canActivate: [CanEditGuard] },
+  { path: 'user-cocktails', component: UserCocktailsComponent, canActivate: [AdminGuard] },
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'super-secret', component: SuperSecretComponent, canActivate: [AdminGuard] },
   { path: 'user-login', component: UserLoginComponent },

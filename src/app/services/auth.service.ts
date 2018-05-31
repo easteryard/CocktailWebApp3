@@ -20,7 +20,7 @@ export class AuthService {
     // Get auth data, then get firestore user document || null
     this.user$ = this.afAuth.authState.pipe(switchMap(user => {
       if (user) {
-        return this.afs.doc<User>(`user/${user.uid}`).valueChanges();
+        return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
       } else {
         return Observable.of(null);
       }

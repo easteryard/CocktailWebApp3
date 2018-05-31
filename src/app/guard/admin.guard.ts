@@ -13,7 +13,7 @@ export class AdminGuard implements CanActivate {
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    state: RouterStateSnapshot): Observable<boolean>  | boolean {
 
       return this.auth.user$.pipe(
         take(1),
