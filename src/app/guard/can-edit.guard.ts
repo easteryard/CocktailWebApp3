@@ -18,8 +18,8 @@ export class CanEditGuard implements CanActivate {
       return this.auth.user$.pipe(
         take(1),
         map(user => user && this.auth.canEdit(user) ? true : false),
-        tap(isAdmin => {
-          if (!isAdmin) {
+        tap(isEditor => {
+          if (!isEditor) {
             console.error('Access denied - Must have permission to edit content.');
           }
         })

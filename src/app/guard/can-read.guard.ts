@@ -18,8 +18,8 @@ export class CanReadGuard implements CanActivate {
       return this.auth.user$.pipe(
         take(1),
         map(user => user && this.auth.canRead(user) ? true : false),
-        tap(isAdmin => {
-          if (!isAdmin) {
+        tap(isSubscriber => {
+          if (!isSubscriber) {
             console.error('Access denied - Must have permission to view content.');
           }
         })

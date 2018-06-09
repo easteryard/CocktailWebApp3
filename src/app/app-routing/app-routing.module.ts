@@ -15,12 +15,11 @@ import { CanReadGuard } from './../guard/can-read.guard';
 import { CanEditGuard } from './../guard/can-edit.guard';
 
 export const appRoutes: Routes = [
-  { path: 'browse-cocktails', component: AllCocktailsComponent },
-  { path: 'user-cocktails', component: UserCocktailsComponent, canActivate: [AdminGuard] },
-  { path: 'user-profile', component: UserProfileComponent },
+  { path: 'browse-cocktails', component: AllCocktailsComponent, canActivate: [CanReadGuard] },
+  { path: 'user-cocktails', component: UserCocktailsComponent, canActivate: [CanEditGuard] },
+  { path: 'user-profile', component: UserProfileComponent, canActivate: [CanEditGuard] },
   { path: 'super-secret', component: SuperSecretComponent, canActivate: [AdminGuard] },
   { path: 'user-login', component: UserLoginComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent },
-
+  { path: '**', component: PageNotFoundComponent }
 ];
